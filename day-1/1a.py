@@ -5,11 +5,11 @@ class TopElf():
         self.top_cal = 0
 
     def __str__(self):
-        return ("The elf carrying the most calories is elf " +
+        return ('The elf carrying the most calories is elf ' +
                 str(self.top_elf) +
-                ", with a total of " +
+                ', with a total of ' +
                 str(self.top_cal) +
-                " calories.")
+                ' calories.')
 
     def compare_cal(self, calories, elf):
         if self.top_cal < calories:
@@ -24,7 +24,7 @@ with open('1a-input.txt') as f:
     current_cal = 0
     current_elf = 1
     for line in lines:
-        if line != "\n":
+        if line != '\n':
             current_cal += int(line)
         else:
             top_elf.compare_cal(calories=current_cal, elf=current_elf)

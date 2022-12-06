@@ -3,9 +3,6 @@ class CleanupAssignments():
     def __init__(self, *args, **kwargs):
         self.sum_assignment_pairs = 0
 
-        # with open(kwargs['f']) as f:
-        #     lines = f.readlines()
-
     def __str__(self):
         return('There are ' +
                str(self.sum_assignment_pairs) +
@@ -24,7 +21,7 @@ class CleanupAssignments():
             for line in lines:
                 clean_line = line.splitlines()[0]
                 ranges = clean_line.replace('-', ',').split(',')
-                if self.range_inrange(ranges[0], ranges[1], ranges[2], ranges[3]):
+                if self.range_inrange(int(ranges[0]), int(ranges[1]), int(ranges[2]), int(ranges[3])):
                     self.sum_assignment_pairs += 1
 
         return self.sum_assignment_pairs

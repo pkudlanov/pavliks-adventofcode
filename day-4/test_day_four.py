@@ -36,6 +36,33 @@ class TestCampCleanup(unittest.TestCase):
 
         self.assertEqual(result, False)
 
+    def test_rinr_same(self):
+        range_a = (1, 9)
+        range_b = (1, 9)
+        assignments = a.CleanupAssignments()
+
+        result = assignments.range_inrange(range_a[0], range_a[1], range_b[0], range_b[1])
+
+        self.assertEqual(result, True)
+
+    def test_rinr_end(self):
+        range_a = (1, 9)
+        range_b = (9, 18)
+        assignments = a.CleanupAssignments()
+
+        result = assignments.range_inrange(range_a[0], range_a[1], range_b[0], range_b[1])
+
+        self.assertEqual(result, False)
+
+    def test_rinr_single(self):
+        range_a = (6, 6)
+        range_b = (6, 6)
+        assignments = a.CleanupAssignments()
+
+        result = assignments.range_inrange(range_a[0], range_a[1], range_b[0], range_b[1])
+
+        self.assertEqual(result, True)
+
 
 if __name__ == '__main__':
     unittest.main()

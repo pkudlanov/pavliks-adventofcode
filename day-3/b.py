@@ -4,6 +4,13 @@ class PackOrganizer():
         self.sum_priorities = 0
         self.threesome = []
 
+        with open(kwargs['f']) as f:
+            lines = f.readlines()
+
+            for line in lines:
+                items = line.splitlines()[0]
+                self.get_threesome(items=items)
+
     def __str__(self):
         return 'The sum of all the priorities is ' + str(self.sum_priorities) + '.'
 
@@ -23,14 +30,5 @@ class PackOrganizer():
             self.find_common_item(bags=self.threesome)
             self.threesome.clear()
 
-
-pack = PackOrganizer()
-
-with open('input.txt') as f:
-    lines = f.readlines()
-
-    for line in lines:
-        items = line.splitlines()[0]
-        pack.get_threesome(items=items)
-
-print(pack)
+    def result(self):
+        return self.sum_priorities

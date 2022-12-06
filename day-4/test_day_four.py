@@ -1,5 +1,6 @@
 import unittest
 import a
+import b
 
 
 class TestCampCleanup(unittest.TestCase):
@@ -62,6 +63,18 @@ class TestCampCleanup(unittest.TestCase):
         result = assignments.range_inrange(range_a[0], range_a[1], range_b[0], range_b[1])
 
         self.assertEqual(result, True)
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+
+class TestCampCleanupOverlapping(unittest.TestCase):
+
+    def test_b(self):
+        assignments = b.CleanupAssignments()
+        result = assignments.result(f='test-input.txt')
+        self.assertEqual(result, 4)
 
 
 if __name__ == '__main__':

@@ -25,19 +25,3 @@ class CleanupAssignments():
                     self.sum_assignment_pairs += 1
 
         return self.sum_assignment_pairs
-
-
-class PackOrganizer():
-
-    def __init__(self, *args, **kwargs):
-        self.sum_priorities = 0
-
-        with open(kwargs['f']) as f:
-            lines = f.readlines()
-
-            for line in lines:
-                items = line.splitlines()[0]
-                self.find_common_item(items=items)
-
-    def __str__(self):
-        return 'The sum of all the priorities is ' + str(self.sum_priorities) + '.'

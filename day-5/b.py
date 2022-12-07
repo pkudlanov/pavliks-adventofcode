@@ -4,7 +4,7 @@ class Supplies():
         self.stacks = {}
 
     def __str__(self):
-        return('Part A:\n' +
+        return('Part B:\n' +
                'The crates on top of all the stacks are as follows ' +
                self.last_crates() + '.\n')
 
@@ -29,11 +29,9 @@ class Supplies():
                         self.stack_crate(stack=str(int(proper_stack_num)), crate=char)
 
     def move_crates(self, *args, **kwargs):
-        i = 0
-        while i < kwargs['crates_amount']:
-            crate = self.stacks[kwargs['from_stack']].pop()
-            self.stacks[kwargs['to_stack']].append(crate)
-            i += 1
+        crates = self.stacks[kwargs['from_stack']][-kwargs['crates_amount']::]
+        del self.stacks[kwargs['from_stack']][-kwargs['crates_amount']::]
+        self.stacks[kwargs['to_stack']].extend(crates)
 
     def last_crates(self, *args, **kwargs):
         i = 0

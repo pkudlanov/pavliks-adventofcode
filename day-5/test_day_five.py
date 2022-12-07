@@ -1,5 +1,6 @@
 import unittest
 import a
+import b
 
 
 class TestPartA(unittest.TestCase):
@@ -48,6 +49,23 @@ class TestPartA(unittest.TestCase):
         result = supplies.last_crates()
 
         self.assertEqual(result, 'CMZ')
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+
+class TestPartB(unittest.TestCase):
+
+    def test_move_crates(self):
+
+        supplies = b.Supplies()
+        supplies.build_stacks(f='test-input.txt')
+        supplies.move_crates(from_stack='2', to_stack='3', crates_amount=2)
+
+        result = supplies.stacks
+
+        self.assertEqual(result, {'1': ['Z', 'N'], '2': ['M'], '3': ['P', 'C', 'D']})
 
 
 if __name__ == '__main__':
